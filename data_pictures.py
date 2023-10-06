@@ -82,6 +82,7 @@ class DataPicture:
     # (1) Линейное растяжение гистограммы
     def stretch(self):
         # Находим конфиденты
+        print(type(self.picture[0][0]))
         a, b = search_coefficients_for_stretch(self.picture)
 
         # Новая картинка считается по формуле:
@@ -96,14 +97,14 @@ class DataPicture:
         # 1. Нет оригинального изображения - сброс
         if original_picture.picture is None:
             return
-        print("1")
+
         # 2. Нет гистограмм оригинального изображения - рассчитать
         if (original_picture.linear_histogram is None) or (original_picture.cumulative_histogram is None):
             original_picture.update_histograms()
-        print("2")
+
         # 3. Копируем линейную гистограмму исходного изображения
         resulting_picture.linear_histogram = original_picture.linear_histogram.copy()
-        print("3")
+
         # 4. Обрезаем гистограмму результирующего изображения, по проценту сохраненных отсчетов
         # 4.1. Находим начало и конец интервала
         subinterval_of_nonzero_values = resulting_picture.linear_histogram.loc[
@@ -119,14 +120,15 @@ class DataPicture:
         for i in range(int(how_much_remove // 2)):
             resulting_picture.linear_histogram[old_val_min + i] = 0
             resulting_picture.linear_histogram[old_val_max - i] = 0
-        print("4")
+
         # 5. Вычислили новую линейную гистограмму, по ней найдем кумулятивную гистограмму
         resulting_picture.update_cumulative_histogram()
-        print("5")
+
         # 6. Исходным данным и гистограмме результирующего изображения.
         # Находим результирующее изображение
         resulting_picture.picture = DataPicture.cumulative_histograms_to_picture(
             resulting_picture.cumulative_histogram, original_picture)
+
         return resulting_picture
 
     # Метод создания изображения на основе
@@ -145,6 +147,12 @@ class DataPicture:
             count_in_histogram = original_picture.cumulative_histogram[old_value_pixel]
             old_to_new_value_array[old_value_pixel] = (abs(cumulative_histogram_resulting - count_in_histogram)
                                                        ).sort_values().index[0]
+        # Frame для проверки данных
+        # print( pd.DataFrame({
+        #     "orig":original_picture.cumulative_histogram,
+        #     "res": cumulative_histogram_resulting,
+        #     "old_to_new": old_to_new_value_array
+        # }).to_string())
 
         # 3. Перевод
         for i in range(height):

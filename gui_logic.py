@@ -16,17 +16,25 @@ matplotlib.use('TkAgg')
 
 # Перевод цветной картинки в серую
 def black_white_image(color_picture):
+    # Получаем размер
     height, width, _ = color_picture.shape
 
-    gray_image = np.zeros((height, width), dtype="uint8")
+    # Переводим в серый
+    gray_image = np.zeros((height, width))
     for i in range(height):
         for j in range(width):
             pixel = color_picture[i, j]
-            gray_image[i, j] = np.uint8(0.299 * pixel[0] + 0.587 * pixel[1] + 0.114 * pixel[2])
+            gray_image[i, j] = 0.299 * pixel[0] + 0.587 * pixel[1] + 0.114 * pixel[2]
 
+    # Нормируем максимум к 255
     maximum_intensity = np.max(gray_image)
     multiplier = 255 / maximum_intensity
     gray_image = gray_image * multiplier
+
+    # Округляем
+    gray_image = np.round(gray_image, decimals=0)
+    # Привет к uint8 - беззнаковый int 8 байт - 255 max
+    gray_image = gray_image.astype("uint8")
 
     return gray_image
 
@@ -171,7 +179,7 @@ class GuiProgram(Ui_Dialog):
 
         # 2) Отображаем результат
         self.display_data_picture_in_graph_resulting(self.resulting_picture)
-        #self.display_data_picture_in_graph_original(self.original_picture)
+
 
     # Вывод гистограмм и картинки, в оригинальный столбец.
     def display_data_picture_in_graph_original(self, picture: DataPicture):

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1175</width>
-    <height>616</height>
+    <height>615</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -277,7 +277,7 @@ border: none;
               <x>0</x>
               <y>0</y>
               <width>200</width>
-              <height>610</height>
+              <height>609</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -511,7 +511,7 @@ QPushButton:hover {
                  <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>20</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QGroupBox" name="groupBox_stretch">
@@ -579,95 +579,74 @@ QPushButton:pressed      {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QWidget" name="widget_normalization" native="true">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
+                 <widget class="QGroupBox" name="groupBox_normalization">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
                   </property>
-                  <layout class="QVBoxLayout" name="layout_normalization">
+                  <property name="title">
+                   <string>Нормализция гистограммы</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="layout_normalization" stretch="0,0">
+                   <property name="spacing">
+                    <number>6</number>
+                   </property>
                    <property name="leftMargin">
-                    <number>0</number>
+                    <number>9</number>
                    </property>
                    <property name="topMargin">
-                    <number>0</number>
+                    <number>5</number>
                    </property>
                    <property name="rightMargin">
-                    <number>0</number>
+                    <number>9</number>
                    </property>
                    <property name="bottomMargin">
-                    <number>20</number>
+                    <number>9</number>
                    </property>
                    <item>
-                    <widget class="QGroupBox" name="groupBox_normalization">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="title">
-                      <string>Растяжка гистограммы</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="layout_normalization_2" stretch="0,0">
+                    <widget class="QWidget" name="widget_percent_normalization" native="true">
+                     <layout class="QHBoxLayout" name="layout_percent_normalization" stretch="1,1">
                       <property name="spacing">
                        <number>6</number>
                       </property>
                       <property name="leftMargin">
-                       <number>9</number>
+                       <number>0</number>
                       </property>
                       <property name="topMargin">
-                       <number>5</number>
+                       <number>0</number>
                       </property>
                       <property name="rightMargin">
-                       <number>9</number>
+                       <number>0</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>9</number>
+                       <number>0</number>
                       </property>
                       <item>
-                       <widget class="QWidget" name="widget_percent_normalization" native="true">
-                        <layout class="QHBoxLayout" name="layout__percent_normalization" stretch="1,1">
-                         <property name="spacing">
-                          <number>6</number>
-                         </property>
-                         <property name="leftMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="topMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="rightMargin">
-                          <number>0</number>
-                         </property>
-                         <property name="bottomMargin">
-                          <number>0</number>
-                         </property>
-                         <item>
-                          <widget class="QLabel" name="label_text_normalization_percent">
-                           <property name="text">
-                            <string>Удаление [%]</string>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLineEdit" name="lineEdit_percent_normalization">
-                           <property name="text">
-                            <string>5</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
+                       <widget class="QLabel" name="label_text_normalization_percent">
+                        <property name="text">
+                         <string>Удаление [%]</string>
+                        </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButton_normalization">
-                        <property name="styleSheet">
-                         <string notr="true">
+                       <widget class="QLineEdit" name="lineEdit_percent_normalization">
+                        <property name="text">
+                         <string>20</string>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_normalization">
+                     <property name="styleSheet">
+                      <string notr="true">
 QPushButton {
 	font-size: 10pt;
 	background-color:rgb(37, 41, 48);/* задает цвет фона */
@@ -693,13 +672,10 @@ QPushButton:pressed      {
 	border: none;												/* без границ */
 }
 /*</string>
-                        </property>
-                        <property name="text">
-                         <string>Обработка</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
+                     </property>
+                     <property name="text">
+                      <string>Обработка</string>
+                     </property>
                     </widget>
                    </item>
                   </layout>
