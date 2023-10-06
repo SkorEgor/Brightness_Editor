@@ -450,7 +450,7 @@ QPushButton:hover {
                          <bool>true</bool>
                         </property>
                         <property name="checked">
-                         <bool>true</bool>
+                         <bool>false</bool>
                         </property>
                        </widget>
                       </item>
@@ -458,6 +458,9 @@ QPushButton:hover {
                        <widget class="QRadioButton" name="radioButton_gray_picture">
                         <property name="text">
                          <string>Серая</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
                         </property>
                        </widget>
                       </item>
@@ -736,6 +739,12 @@ color: rgb(0, 0, 0);
         <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,2" rowminimumheight="0,0,0">
          <property name="leftMargin">
           <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
          </property>
          <property name="verticalSpacing">
           <number>0</number>

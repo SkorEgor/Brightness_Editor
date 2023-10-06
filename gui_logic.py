@@ -1,7 +1,3 @@
-import random
-
-from PyQt5.QtWidgets import QFileDialog
-
 from gui import Ui_Dialog
 
 from graph import Graph
@@ -9,6 +5,7 @@ from drawer import Drawer as drawer
 from data_pictures import DataPicture
 
 from PyQt5 import QtCore
+from PyQt5.QtWidgets import QFileDialog
 import cv2
 import numpy as np
 import pandas as pd
@@ -32,37 +29,6 @@ def black_white_image(color_picture):
     gray_image = gray_image * multiplier
 
     return gray_image
-
-def search_coefficients_for_stretch(gray_image):
-    f_old_val_min = np.min(gray_image)
-    f_old_val_max = np.max(gray_image)
-
-    g_new_val_min = 0
-    g_new_val_max = 255
-
-    b = (g_new_val_max - g_new_val_min) / (f_old_val_max - f_old_val_min)
-    a = g_new_val_min - b * f_old_val_min
-
-    return a, b
-
-# Получение кумулятивной гистограммы
-def get_cumulative_histograms(linear_histogram):
-    cumulative_histograms = linear_histogram
-    for i in range(1,linear_histogram.size):
-        cumulative_histograms[i] += cumulative_histograms[i-1]
-    return cumulative_histograms
-
-# Гистограмма для переданного изображения. Индексы - цвет; Значения - количество
-def histogram_from_picture(gray_image):
-    # Создаем массив размера до максимального значения серого на картинке
-    quantity = pd.Series([0] * int(gray_image.max()+1))
-
-    # Перебираем и считаем количество
-    for i in gray_image:
-        for j in i:
-            quantity[int(j)] += 1
-
-    return quantity
 
 
 # КЛАСС АЛГОРИТМА ПРИЛОЖЕНИЯ
@@ -183,48 +149,38 @@ class GuiProgram(Ui_Dialog):
 
     # Линейное растяжение гистограммы
     def stretch(self):
+        # Нет изображения - сброс
+        if self.original_picture.picture is None:
+            return
+
         self.resulting_picture.picture = self.original_picture.picture
-        self.resulting_picture.stretch()
-        self.resulting_picture.update_histograms()
-        self.display_data_picture_in_graph_resulting(self.resulting_picture)
+        self.resulting_picture.stretch()    # Считаем результирующее изображение
+        self.resulting_picture.update_histograms()    # Для него обновляем гистограммы
+        self.display_data_picture_in_graph_resulting(self.resulting_picture)    # Отображаем результат
 
+    # Нормализация - обрезаем линейную гистограмму и восстанавливаем изображение
     def normalization(self):
-        self.resulting_picture.picture = self.original_picture.picture.copy()
+        # Нет изображения - сброс
+        if self.original_picture.picture is None:
+            return
 
-        # 1) Нормировка гистограммы
-        self.resulting_picture.normalization(float(self.lineEdit_percent_normalization.text()),
-                                             self.original_picture)
+        # 0) Нормализация по переданному проценту
+        self.resulting_picture = DataPicture.normalization(
+            float(self.lineEdit_percent_normalization.text()),
+            self.original_picture)
 
-        #self.resulting_picture.update_histograms()
+        # 2) Отображаем результат
         self.display_data_picture_in_graph_resulting(self.resulting_picture)
-        self.display_data_picture_in_graph_original(self.original_picture)
-
-
-        # new_histogram = self.histogram_original_picture
-        #
-        # # Находим начало и конец интервала
-        # subinterval_of_nonzero_values = self.histogram_original_picture.loc[self.histogram_original_picture > 0]
-        # old_val_min = subinterval_of_nonzero_values.index[0]
-        # old_val_max = subinterval_of_nonzero_values.index[-1]
-        # old_len = subinterval_of_nonzero_values.size
-        #
-        # how_much_remove = old_len * float(self.lineEdit_percent_normalization.text()) / 100
-        #
-        # # Обнуление малоинформативных хвостов
-        # for i in range(int(how_much_remove // 2)):
-        #     new_histogram[old_val_min + i] = 0
-        #     new_histogram[old_val_max - i] = 0
-        #
-        # drawer.histogram(self.graph_histogram_received_picture, new_histogram)
+        #self.display_data_picture_in_graph_original(self.original_picture)
 
     # Вывод гистограмм и картинки, в оригинальный столбец.
     def display_data_picture_in_graph_original(self, picture: DataPicture):
-        drawer.histogram(self.graph_cumulative_histogram_original_picture, picture.cumulative_histograms)
+        drawer.histogram(self.graph_cumulative_histogram_original_picture, picture.cumulative_histogram)
         drawer.histogram(self.graph_linear_histogram_original_picture, picture.linear_histogram)
         self.display_picture()
 
     # Вывод гистограмм и картинки, в результирующий столбец.
     def display_data_picture_in_graph_resulting(self, picture: DataPicture):
-        drawer.histogram(self.graph_cumulative_histogram_resulting_picture, picture.cumulative_histograms)
+        drawer.histogram(self.graph_cumulative_histogram_resulting_picture, picture.cumulative_histogram)
         drawer.histogram(self.graph_linear_histogram_resulting_picture, picture.linear_histogram)
         drawer.image_gray(self.graph_resulting_picture, picture.picture)
