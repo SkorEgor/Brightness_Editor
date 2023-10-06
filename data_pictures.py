@@ -125,30 +125,32 @@ class DataPicture:
         print("5")
         # 6. Исходным данным и гистограмме результирующего изображения.
         # Находим результирующее изображение
-        resulting_picture.picture = DataPicture.update_cumulative_histograms_to_picture(
+        resulting_picture.picture = DataPicture.cumulative_histograms_to_picture(
             resulting_picture.cumulative_histogram, original_picture)
         return resulting_picture
 
+    # Метод создания изображения на основе
+    # * Необходимой Кумулятивной гистограммы (cumulative_histogram_resulting) по
+    # * Исходному изображению и Кумулятивная гистограмме
     @staticmethod
-    def update_cumulative_histograms_to_picture(cumulative_histogram_resulting, original_picture):
+    def cumulative_histograms_to_picture(cumulative_histogram_resulting, original_picture):
         height, width = original_picture.picture.shape
 
-        resulting_image = np.zeros((height, width), dtype="uint8") # Результирующее изображение такого же размера
+        # 1. Создаем пустое результирующее изображение
+        resulting_image = np.zeros((height, width), dtype="uint8")  # Результирующее изображение такого же размера
 
-        # 1. Уберем из рассмотрения нулевые элементы
-        old_cumulative_histograms = original_picture.cumulative_histogram.loc[
-            original_picture.cumulative_histogram > 0]
-        new_cumulative_histograms = cumulative_histogram_resulting.loc[
-            cumulative_histogram_resulting > 0]
+        # 2. Создаем массив перевода старых значений в новые
+        old_to_new_value_array = np.zeros(256, dtype="uint8")
+        for old_value_pixel in range(256):
+            count_in_histogram = original_picture.cumulative_histogram[old_value_pixel]
+            old_to_new_value_array[old_value_pixel] = (abs(cumulative_histogram_resulting - count_in_histogram)
+                                                       ).sort_values().index[0]
 
-
+        # 3. Перевод
         for i in range(height):
             for j in range(width):
-                old_value_pixel = int(original_picture.picture[i, j])
-                count_in_linear_histogram = old_cumulative_histograms[old_value_pixel]
-                new_value_pixel = abs(new_cumulative_histograms - count_in_linear_histogram).sort_values().index[0]
+                resulting_image[i, j] = old_to_new_value_array[int(original_picture.picture[i, j])]
 
-                resulting_image[i, j] = new_value_pixel
-
+        # 4. Возвращаем результат
         return resulting_image
 
