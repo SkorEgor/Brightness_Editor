@@ -357,24 +357,28 @@ class Ui_Dialog(object):
         self.layout_normalization.setContentsMargins(9, 5, 9, 9)
         self.layout_normalization.setSpacing(6)
         self.layout_normalization.setObjectName("layout_normalization")
-        self.widget_percent_normalization = QtWidgets.QWidget(self.groupBox_normalization)
-        self.widget_percent_normalization.setObjectName("widget_percent_normalization")
-        self.layout_percent_normalization = QtWidgets.QHBoxLayout(self.widget_percent_normalization)
-        self.layout_percent_normalization.setContentsMargins(0, 0, 0, 0)
-        self.layout_percent_normalization.setSpacing(6)
-        self.layout_percent_normalization.setObjectName("layout_percent_normalization")
-        self.label_text_normalization_percent = QtWidgets.QLabel(self.widget_percent_normalization)
-        self.label_text_normalization_percent.setObjectName("label_text_normalization_percent")
-        self.layout_percent_normalization.addWidget(self.label_text_normalization_percent)
-        self.lineEdit_percent_normalization = QtWidgets.QLineEdit(self.widget_percent_normalization)
-        self.lineEdit_percent_normalization.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_percent_normalization.setObjectName("lineEdit_percent_normalization")
-        self.layout_percent_normalization.addWidget(self.lineEdit_percent_normalization)
-        self.layout_percent_normalization.setStretch(0, 1)
-        self.layout_percent_normalization.setStretch(1, 1)
-        self.layout_normalization.addWidget(self.widget_percent_normalization)
-        self.pushButton_normalization = QtWidgets.QPushButton(self.groupBox_normalization)
-        self.pushButton_normalization.setStyleSheet("\n"
+        self.groupBox_percent_counts = QtWidgets.QGroupBox(self.groupBox_normalization)
+        self.groupBox_percent_counts.setObjectName("groupBox_percent_counts")
+        self.layout_percent_counts = QtWidgets.QVBoxLayout(self.groupBox_percent_counts)
+        self.layout_percent_counts.setObjectName("layout_percent_counts")
+        self.widget_normalization_percent_counts = QtWidgets.QWidget(self.groupBox_percent_counts)
+        self.widget_normalization_percent_counts.setObjectName("widget_normalization_percent_counts")
+        self.layout_normalization_percent_counts = QtWidgets.QHBoxLayout(self.widget_normalization_percent_counts)
+        self.layout_normalization_percent_counts.setContentsMargins(0, 0, 0, 0)
+        self.layout_normalization_percent_counts.setSpacing(6)
+        self.layout_normalization_percent_counts.setObjectName("layout_normalization_percent_counts")
+        self.label_text_normalization_percent_counts = QtWidgets.QLabel(self.widget_normalization_percent_counts)
+        self.label_text_normalization_percent_counts.setObjectName("label_text_normalization_percent_counts")
+        self.layout_normalization_percent_counts.addWidget(self.label_text_normalization_percent_counts)
+        self.lineEdit_normalization_percent_counts = QtWidgets.QLineEdit(self.widget_normalization_percent_counts)
+        self.lineEdit_normalization_percent_counts.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_normalization_percent_counts.setObjectName("lineEdit_normalization_percent_counts")
+        self.layout_normalization_percent_counts.addWidget(self.lineEdit_normalization_percent_counts)
+        self.layout_normalization_percent_counts.setStretch(0, 1)
+        self.layout_normalization_percent_counts.setStretch(1, 1)
+        self.layout_percent_counts.addWidget(self.widget_normalization_percent_counts)
+        self.pushButton_normalization_percent_counts = QtWidgets.QPushButton(self.groupBox_percent_counts)
+        self.pushButton_normalization_percent_counts.setStyleSheet("\n"
 "QPushButton {\n"
 "    font-size: 10pt;\n"
 "    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
@@ -400,8 +404,59 @@ class Ui_Dialog(object):
 "    border: none;                                                /* без границ */\n"
 "}\n"
 "/*")
-        self.pushButton_normalization.setObjectName("pushButton_normalization")
-        self.layout_normalization.addWidget(self.pushButton_normalization)
+        self.pushButton_normalization_percent_counts.setObjectName("pushButton_normalization_percent_counts")
+        self.layout_percent_counts.addWidget(self.pushButton_normalization_percent_counts)
+        self.layout_normalization.addWidget(self.groupBox_percent_counts)
+        self.groupBox_percent_counts_2 = QtWidgets.QGroupBox(self.groupBox_normalization)
+        self.groupBox_percent_counts_2.setObjectName("groupBox_percent_counts_2")
+        self.layout_percent_counts_2 = QtWidgets.QVBoxLayout(self.groupBox_percent_counts_2)
+        self.layout_percent_counts_2.setObjectName("layout_percent_counts_2")
+        self.widget_normalization_percent_counts_2 = QtWidgets.QWidget(self.groupBox_percent_counts_2)
+        self.widget_normalization_percent_counts_2.setObjectName("widget_normalization_percent_counts_2")
+        self.layout_normalization_percent_counts_2 = QtWidgets.QHBoxLayout(self.widget_normalization_percent_counts_2)
+        self.layout_normalization_percent_counts_2.setContentsMargins(0, 0, 0, 0)
+        self.layout_normalization_percent_counts_2.setSpacing(6)
+        self.layout_normalization_percent_counts_2.setObjectName("layout_normalization_percent_counts_2")
+        self.label_text_normalization_percent_counts_2 = QtWidgets.QLabel(self.widget_normalization_percent_counts_2)
+        self.label_text_normalization_percent_counts_2.setObjectName("label_text_normalization_percent_counts_2")
+        self.layout_normalization_percent_counts_2.addWidget(self.label_text_normalization_percent_counts_2)
+        self.lineEdit_normalization_percent_counts_2 = QtWidgets.QLineEdit(self.widget_normalization_percent_counts_2)
+        self.lineEdit_normalization_percent_counts_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_normalization_percent_counts_2.setObjectName("lineEdit_normalization_percent_counts_2")
+        self.layout_normalization_percent_counts_2.addWidget(self.lineEdit_normalization_percent_counts_2)
+        self.layout_normalization_percent_counts_2.setStretch(0, 1)
+        self.layout_normalization_percent_counts_2.setStretch(1, 1)
+        self.layout_percent_counts_2.addWidget(self.widget_normalization_percent_counts_2)
+        self.pushButton_normalization_percent_counts_2 = QtWidgets.QPushButton(self.groupBox_percent_counts_2)
+        self.pushButton_normalization_percent_counts_2.setStyleSheet("\n"
+"QPushButton {\n"
+"    font-size: 10pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
+"    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
+"    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
+"\n"
+"    /* задает иконку */\n"
+"    background-position: left center;                            /* выравнивание иконки */\n"
+"    background-repeat: no-repeat;                                /* повторять иконку */\n"
+"} \n"
+"\n"
+"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"\n"
+"\n"
+"/* срабатывает, при нажатии*/\n"
+"QPushButton:pressed      {\n"
+"    background-color:rgb(170, 170, 170);        /* задаем цвет фона */\n"
+"    color: rgb(181, 181, 181);\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"/*")
+        self.pushButton_normalization_percent_counts_2.setObjectName("pushButton_normalization_percent_counts_2")
+        self.layout_percent_counts_2.addWidget(self.pushButton_normalization_percent_counts_2)
+        self.layout_normalization.addWidget(self.groupBox_percent_counts_2)
         self.layout_options.addWidget(self.groupBox_normalization)
         self.verticalLayout_2.addWidget(self.widget_options)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -484,7 +539,12 @@ class Ui_Dialog(object):
         self.groupBox_stretch.setTitle(_translate("Dialog", "Растяжка гистограммы"))
         self.pushButton_stretch.setText(_translate("Dialog", "Обработка"))
         self.groupBox_normalization.setTitle(_translate("Dialog", "Нормализция гистограммы"))
-        self.label_text_normalization_percent.setText(_translate("Dialog", "Удаление [%]"))
-        self.lineEdit_percent_normalization.setText(_translate("Dialog", "20"))
-        self.pushButton_normalization.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_percent_counts.setTitle(_translate("Dialog", "Процент отсчетов"))
+        self.label_text_normalization_percent_counts.setText(_translate("Dialog", "Удаление [%]"))
+        self.lineEdit_normalization_percent_counts.setText(_translate("Dialog", "20"))
+        self.pushButton_normalization_percent_counts.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_percent_counts_2.setTitle(_translate("Dialog", "Процент интенсивности"))
+        self.label_text_normalization_percent_counts_2.setText(_translate("Dialog", "Удаление [%]"))
+        self.lineEdit_normalization_percent_counts_2.setText(_translate("Dialog", "20"))
+        self.pushButton_normalization_percent_counts_2.setText(_translate("Dialog", "Обработка"))
 import res_rc

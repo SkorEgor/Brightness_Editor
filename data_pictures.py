@@ -89,9 +89,9 @@ class DataPicture:
         # new_image[i, j] = a + b * self.grey_picture[i, j]
         self.picture = a + b * self.picture
 
-    # (2) Нормализация
+    # (2) Нормализация по отсчетам
     @staticmethod
-    def normalization(percentage_saving, original_picture):
+    def normalization_by_samples(percentage_saving, original_picture):
         resulting_picture = DataPicture()
 
         # 1. Нет оригинального изображения - сброс
@@ -131,6 +131,39 @@ class DataPicture:
 
         return resulting_picture
 
+    # (3) Нормализация по интенсивности
+    @staticmethod
+    def normalization_by_intensity(percentage_saving, original_picture):
+        resulting_picture = DataPicture()
+
+        # 1. Нет оригинального изображения - сброс
+        if original_picture.picture is None:
+            return
+
+        # 2. Нет гистограмм оригинального изображения - рассчитать
+        if (original_picture.linear_histogram is None) or (original_picture.cumulative_histogram is None):
+            original_picture.update_histograms()
+
+        # 3. Копируем линейную гистограмму исходного изображения
+        resulting_picture.linear_histogram = original_picture.linear_histogram.copy()
+
+        # 4. Находим максимум
+        max_linear_histogram = resulting_picture.linear_histogram.max()
+
+        # Зануляем все что меньше процента максимума
+        resulting_picture.linear_histogram[
+            resulting_picture.linear_histogram < max_linear_histogram * percentage_saving / 100] = 0
+
+        # 5. Вычислили новую линейную гистограмму, по ней найдем кумулятивную гистограмму
+        resulting_picture.update_cumulative_histogram()
+
+        # 6. Исходным данным и гистограмме результирующего изображения.
+        # Находим результирующее изображение
+        resulting_picture.picture = DataPicture.cumulative_histograms_to_picture(
+            resulting_picture.cumulative_histogram, original_picture)
+
+        return resulting_picture
+
     # Метод создания изображения на основе
     # * Необходимой Кумулятивной гистограммы (cumulative_histogram_resulting) по
     # * Исходному изображению и Кумулятивная гистограмме
@@ -142,17 +175,15 @@ class DataPicture:
         resulting_image = np.zeros((height, width), dtype="uint8")  # Результирующее изображение такого же размера
 
         # 2. Создаем массив перевода старых значений в новые
-        old_to_new_value_array = np.zeros(256, dtype="uint8")
-        for old_value_pixel in range(256):
+        old_to_new_value_array = original_picture.cumulative_histogram[
+                                     original_picture.cumulative_histogram > 0] * 0  # np.zeros(256, dtype="uint8")
+        print(old_to_new_value_array.to_string())
+        for old_value_pixel in old_to_new_value_array.index:
             count_in_histogram = original_picture.cumulative_histogram[old_value_pixel]
             old_to_new_value_array[old_value_pixel] = (abs(cumulative_histogram_resulting - count_in_histogram)
                                                        ).sort_values().index[0]
-        # Frame для проверки данных
-        # print( pd.DataFrame({
-        #     "orig":original_picture.cumulative_histogram,
-        #     "res": cumulative_histogram_resulting,
-        #     "old_to_new": old_to_new_value_array
-        # }).to_string())
+
+        old_to_new_value_array[old_to_new_value_array == 0] = old_to_new_value_array[old_to_new_value_array > 0].min()
 
         # 3. Перевод
         for i in range(height):
@@ -161,4 +192,3 @@ class DataPicture:
 
         # 4. Возвращаем результат
         return resulting_image
-

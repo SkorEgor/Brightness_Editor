@@ -606,47 +606,53 @@ QPushButton:pressed      {
                     <number>9</number>
                    </property>
                    <item>
-                    <widget class="QWidget" name="widget_percent_normalization" native="true">
-                     <layout class="QHBoxLayout" name="layout_percent_normalization" stretch="1,1">
-                      <property name="spacing">
-                       <number>6</number>
-                      </property>
-                      <property name="leftMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>0</number>
-                      </property>
+                    <widget class="QGroupBox" name="groupBox_percent_counts">
+                     <property name="title">
+                      <string>Процент отсчетов</string>
+                     </property>
+                     <layout class="QVBoxLayout" name="layout_percent_counts">
                       <item>
-                       <widget class="QLabel" name="label_text_normalization_percent">
-                        <property name="text">
-                         <string>Удаление [%]</string>
-                        </property>
+                       <widget class="QWidget" name="widget_normalization_percent_counts" native="true">
+                        <layout class="QHBoxLayout" name="layout_normalization_percent_counts" stretch="1,1">
+                         <property name="spacing">
+                          <number>6</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_text_normalization_percent_counts">
+                           <property name="text">
+                            <string>Удаление [%]</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEdit_normalization_percent_counts">
+                           <property name="text">
+                            <string>50</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="lineEdit_percent_normalization">
-                        <property name="text">
-                         <string>20</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_normalization">
-                     <property name="styleSheet">
-                      <string notr="true">
+                       <widget class="QPushButton" name="pushButton_normalization_percent_counts">
+                        <property name="styleSheet">
+                         <string notr="true">
 QPushButton {
 	font-size: 10pt;
 	background-color:rgb(37, 41, 48);/* задает цвет фона */
@@ -672,10 +678,95 @@ QPushButton:pressed      {
 	border: none;												/* без границ */
 }
 /*</string>
+                        </property>
+                        <property name="text">
+                         <string>Обработка</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_percent_counts_2">
+                     <property name="title">
+                      <string>Процент интенсивности</string>
                      </property>
-                     <property name="text">
-                      <string>Обработка</string>
-                     </property>
+                     <layout class="QVBoxLayout" name="layout_percent_counts_2">
+                      <item>
+                       <widget class="QWidget" name="widget_normalization_percent_counts_2" native="true">
+                        <layout class="QHBoxLayout" name="layout_normalization_percent_counts_2" stretch="1,1">
+                         <property name="spacing">
+                          <number>6</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QLabel" name="label_text_normalization_percent_counts_2">
+                           <property name="text">
+                            <string>Удаление [%]</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEdit_normalization_percent_counts_2">
+                           <property name="text">
+                            <string>20</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="pushButton_normalization_percent_counts_2">
+                        <property name="styleSheet">
+                         <string notr="true">
+QPushButton {
+	font-size: 10pt;
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
+	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
+	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
+
+	/* задает иконку */
+	background-position: left center;							/* выравнивание иконки */
+	background-repeat: no-repeat;								/* повторять иконку */
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+	border: none;												/* без границ */
+}
+
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(170, 170, 170);		/* задаем цвет фона */
+	color: rgb(181, 181, 181);
+	border: none;												/* без границ */
+}
+/*</string>
+                        </property>
+                        <property name="text">
+                         <string>Обработка</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
                     </widget>
                    </item>
                   </layout>

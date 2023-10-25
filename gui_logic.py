@@ -112,7 +112,8 @@ class GuiProgram(Ui_Dialog):
         # Загрузка картинки
         self.pushButton_loading_pictures.clicked.connect(self.load_image)
         self.pushButton_stretch.clicked.connect(self.stretch)
-        self.pushButton_normalization.clicked.connect(self.normalization)
+        self.pushButton_normalization_percent_counts.clicked.connect(self.normalization_by_samples)
+        self.pushButton_normalization_percent_counts_2.clicked.connect(self.normalization_by_intensity)
 
     # ОБРАБОТКА ИНТЕРФЕЙСА
     # Смена режима отображения картинки
@@ -166,15 +167,29 @@ class GuiProgram(Ui_Dialog):
         self.resulting_picture.update_histograms()    # Для него обновляем гистограммы
         self.display_data_picture_in_graph_resulting(self.resulting_picture)    # Отображаем результат
 
-    # Нормализация - обрезаем линейную гистограмму и восстанавливаем изображение
-    def normalization(self):
+    # Нормализация по отсчетам - обрезаем линейную гистограмму и восстанавливаем изображение
+    def normalization_by_samples(self):
         # Нет изображения - сброс
         if self.original_picture.picture is None:
             return
 
         # 0) Нормализация по переданному проценту
-        self.resulting_picture = DataPicture.normalization(
-            float(self.lineEdit_percent_normalization.text()),
+        self.resulting_picture = DataPicture.normalization_by_samples(
+            float(self.lineEdit_normalization_percent_counts.text()),
+            self.original_picture)
+
+        # 2) Отображаем результат
+        self.display_data_picture_in_graph_resulting(self.resulting_picture)
+
+    # Нормализация по интенсивности - обрезаем линейную гистограмму и восстанавливаем изображение
+    def normalization_by_intensity(self):
+        # Нет изображения - сброс
+        if self.original_picture.picture is None:
+            return
+
+        # 0) Нормализация по переданному проценту
+        self.resulting_picture = DataPicture.normalization_by_intensity(
+            float(self.lineEdit_normalization_percent_counts_2.text()),
             self.original_picture)
 
         # 2) Отображаем результат
