@@ -3,6 +3,7 @@ from gui import Ui_Dialog
 from graph import Graph
 from drawer import Drawer as drawer
 from data_pictures import DataPicture
+from custom_equation import custom_distribution
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QFileDialog
@@ -111,9 +112,20 @@ class GuiProgram(Ui_Dialog):
         # Алгоритм обратки
         # Загрузка картинки
         self.pushButton_loading_pictures.clicked.connect(self.load_image)
+        # Растяжка гистограммы
         self.pushButton_stretch.clicked.connect(self.stretch)
+        # Нормализация гистограммы
         self.pushButton_normalization_percent_counts.clicked.connect(self.normalization_by_samples)
-        self.pushButton_normalization_percent_counts_2.clicked.connect(self.normalization_by_intensity)
+        self.pushButton_normalization_percent_intensity.clicked.connect(self.normalization_by_intensity)
+        # Эквализация
+        self.pushButton_equalization_uniform.clicked.connect(
+            lambda: self.equalization(DataPicture.uniform))
+        self.pushButton_equalization_exponent.clicked.connect(
+            lambda: self.equalization(DataPicture.exponent))
+        self.pushButton_equalization_hyperbola.clicked.connect(
+            lambda: self.equalization(DataPicture.hyperbola))
+        # Собственная функция распределения
+        self.pushButton_equalization_equation.clicked.connect(self.custom_linear_histogram)
 
     # ОБРАБОТКА ИНТЕРФЕЙСА
     # Смена режима отображения картинки
@@ -189,7 +201,40 @@ class GuiProgram(Ui_Dialog):
 
         # 0) Нормализация по переданному проценту
         self.resulting_picture = DataPicture.normalization_by_intensity(
-            float(self.lineEdit_normalization_percent_counts_2.text()),
+            float(self.lineEdit_normalization_percent_intensity.text()),
+            self.original_picture)
+
+        # 2) Отображаем результат
+        self.display_data_picture_in_graph_resulting(self.resulting_picture)
+
+    # Эквализация - нормальная
+    def equalization(self, distribution):
+        # Нет изображения - сброс
+        if self.original_picture.picture is None:
+            return
+
+        # 0) Нормализация по переданному проценту
+        self.resulting_picture = DataPicture.equalization_uniform(
+            distribution,
+            self.original_picture)
+
+        # 2) Отображаем результат
+        self.display_data_picture_in_graph_resulting(self.resulting_picture)
+
+    # Эквализация - нормальная
+    def custom_linear_histogram(self):
+        # Нет изображения - сброс
+        if self.original_picture.picture is None:
+            return
+
+        text_equation = self.lineEdit_custom_equation.text()
+        print(text_equation)
+        distribution = custom_distribution(text_equation)
+        print(distribution)
+
+        # 0) Нормализация по переданному проценту
+        self.resulting_picture = DataPicture.equalization_uniform(
+            distribution,
             self.original_picture)
 
         # 2) Отображаем результат

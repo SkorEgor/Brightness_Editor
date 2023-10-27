@@ -213,8 +213,8 @@ class Ui_Dialog(object):
         self.layout_design.setSpacing(3)
         self.layout_design.setObjectName("layout_design")
         self.widget_menu = QtWidgets.QWidget(self.widget_design)
-        self.widget_menu.setMinimumSize(QtCore.QSize(200, 0))
-        self.widget_menu.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.widget_menu.setMinimumSize(QtCore.QSize(230, 0))
+        self.widget_menu.setMaximumSize(QtCore.QSize(230, 16777215))
         self.widget_menu.setObjectName("widget_menu")
         self.layout_menu = QtWidgets.QVBoxLayout(self.widget_menu)
         self.layout_menu.setContentsMargins(0, 0, 0, 6)
@@ -224,7 +224,7 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 200, 609))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -318, 222, 927))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setContentsMargins(0, -1, 3, 0)
@@ -407,28 +407,28 @@ class Ui_Dialog(object):
         self.pushButton_normalization_percent_counts.setObjectName("pushButton_normalization_percent_counts")
         self.layout_percent_counts.addWidget(self.pushButton_normalization_percent_counts)
         self.layout_normalization.addWidget(self.groupBox_percent_counts)
-        self.groupBox_percent_counts_2 = QtWidgets.QGroupBox(self.groupBox_normalization)
-        self.groupBox_percent_counts_2.setObjectName("groupBox_percent_counts_2")
-        self.layout_percent_counts_2 = QtWidgets.QVBoxLayout(self.groupBox_percent_counts_2)
-        self.layout_percent_counts_2.setObjectName("layout_percent_counts_2")
-        self.widget_normalization_percent_counts_2 = QtWidgets.QWidget(self.groupBox_percent_counts_2)
-        self.widget_normalization_percent_counts_2.setObjectName("widget_normalization_percent_counts_2")
-        self.layout_normalization_percent_counts_2 = QtWidgets.QHBoxLayout(self.widget_normalization_percent_counts_2)
-        self.layout_normalization_percent_counts_2.setContentsMargins(0, 0, 0, 0)
-        self.layout_normalization_percent_counts_2.setSpacing(6)
-        self.layout_normalization_percent_counts_2.setObjectName("layout_normalization_percent_counts_2")
-        self.label_text_normalization_percent_counts_2 = QtWidgets.QLabel(self.widget_normalization_percent_counts_2)
-        self.label_text_normalization_percent_counts_2.setObjectName("label_text_normalization_percent_counts_2")
-        self.layout_normalization_percent_counts_2.addWidget(self.label_text_normalization_percent_counts_2)
-        self.lineEdit_normalization_percent_counts_2 = QtWidgets.QLineEdit(self.widget_normalization_percent_counts_2)
-        self.lineEdit_normalization_percent_counts_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_normalization_percent_counts_2.setObjectName("lineEdit_normalization_percent_counts_2")
-        self.layout_normalization_percent_counts_2.addWidget(self.lineEdit_normalization_percent_counts_2)
-        self.layout_normalization_percent_counts_2.setStretch(0, 1)
-        self.layout_normalization_percent_counts_2.setStretch(1, 1)
-        self.layout_percent_counts_2.addWidget(self.widget_normalization_percent_counts_2)
-        self.pushButton_normalization_percent_counts_2 = QtWidgets.QPushButton(self.groupBox_percent_counts_2)
-        self.pushButton_normalization_percent_counts_2.setStyleSheet("\n"
+        self.groupBox_percent_intensity = QtWidgets.QGroupBox(self.groupBox_normalization)
+        self.groupBox_percent_intensity.setObjectName("groupBox_percent_intensity")
+        self.layout_percent_intensity = QtWidgets.QVBoxLayout(self.groupBox_percent_intensity)
+        self.layout_percent_intensity.setObjectName("layout_percent_intensity")
+        self.widget_normalization_percent_intensity = QtWidgets.QWidget(self.groupBox_percent_intensity)
+        self.widget_normalization_percent_intensity.setObjectName("widget_normalization_percent_intensity")
+        self.layout_normalization_percent_intensity = QtWidgets.QHBoxLayout(self.widget_normalization_percent_intensity)
+        self.layout_normalization_percent_intensity.setContentsMargins(0, 0, 0, 0)
+        self.layout_normalization_percent_intensity.setSpacing(6)
+        self.layout_normalization_percent_intensity.setObjectName("layout_normalization_percent_intensity")
+        self.label_text_normalization_percent_intensity = QtWidgets.QLabel(self.widget_normalization_percent_intensity)
+        self.label_text_normalization_percent_intensity.setObjectName("label_text_normalization_percent_intensity")
+        self.layout_normalization_percent_intensity.addWidget(self.label_text_normalization_percent_intensity)
+        self.lineEdit_normalization_percent_intensity = QtWidgets.QLineEdit(self.widget_normalization_percent_intensity)
+        self.lineEdit_normalization_percent_intensity.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_normalization_percent_intensity.setObjectName("lineEdit_normalization_percent_intensity")
+        self.layout_normalization_percent_intensity.addWidget(self.lineEdit_normalization_percent_intensity)
+        self.layout_normalization_percent_intensity.setStretch(0, 1)
+        self.layout_normalization_percent_intensity.setStretch(1, 1)
+        self.layout_percent_intensity.addWidget(self.widget_normalization_percent_intensity)
+        self.pushButton_normalization_percent_intensity = QtWidgets.QPushButton(self.groupBox_percent_intensity)
+        self.pushButton_normalization_percent_intensity.setStyleSheet("\n"
 "QPushButton {\n"
 "    font-size: 10pt;\n"
 "    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
@@ -454,11 +454,178 @@ class Ui_Dialog(object):
 "    border: none;                                                /* без границ */\n"
 "}\n"
 "/*")
-        self.pushButton_normalization_percent_counts_2.setObjectName("pushButton_normalization_percent_counts_2")
-        self.layout_percent_counts_2.addWidget(self.pushButton_normalization_percent_counts_2)
-        self.layout_normalization.addWidget(self.groupBox_percent_counts_2)
+        self.pushButton_normalization_percent_intensity.setObjectName("pushButton_normalization_percent_intensity")
+        self.layout_percent_intensity.addWidget(self.pushButton_normalization_percent_intensity)
+        self.layout_normalization.addWidget(self.groupBox_percent_intensity)
         self.layout_options.addWidget(self.groupBox_normalization)
         self.verticalLayout_2.addWidget(self.widget_options)
+        self.groupBox_equalization = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.groupBox_equalization.sizePolicy().hasHeightForWidth())
+        self.groupBox_equalization.setSizePolicy(sizePolicy)
+        self.groupBox_equalization.setObjectName("groupBox_equalization")
+        self.layout_equalization = QtWidgets.QVBoxLayout(self.groupBox_equalization)
+        self.layout_equalization.setContentsMargins(9, 5, 9, 9)
+        self.layout_equalization.setSpacing(6)
+        self.layout_equalization.setObjectName("layout_equalization")
+        self.groupBox_equalization_uniform = QtWidgets.QGroupBox(self.groupBox_equalization)
+        self.groupBox_equalization_uniform.setObjectName("groupBox_equalization_uniform")
+        self.layout_equalization_uniform = QtWidgets.QVBoxLayout(self.groupBox_equalization_uniform)
+        self.layout_equalization_uniform.setObjectName("layout_equalization_uniform")
+        self.pushButton_equalization_uniform = QtWidgets.QPushButton(self.groupBox_equalization_uniform)
+        self.pushButton_equalization_uniform.setStyleSheet("\n"
+"QPushButton {\n"
+"    font-size: 10pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
+"    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
+"    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
+"\n"
+"    /* задает иконку */\n"
+"    background-position: left center;                            /* выравнивание иконки */\n"
+"    background-repeat: no-repeat;                                /* повторять иконку */\n"
+"} \n"
+"\n"
+"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"\n"
+"\n"
+"/* срабатывает, при нажатии*/\n"
+"QPushButton:pressed      {\n"
+"    background-color:rgb(170, 170, 170);        /* задаем цвет фона */\n"
+"    color: rgb(181, 181, 181);\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"/*")
+        self.pushButton_equalization_uniform.setObjectName("pushButton_equalization_uniform")
+        self.layout_equalization_uniform.addWidget(self.pushButton_equalization_uniform)
+        self.layout_equalization.addWidget(self.groupBox_equalization_uniform)
+        self.groupBox_equalization_exponent = QtWidgets.QGroupBox(self.groupBox_equalization)
+        self.groupBox_equalization_exponent.setObjectName("groupBox_equalization_exponent")
+        self.layout_equalization_exponent = QtWidgets.QVBoxLayout(self.groupBox_equalization_exponent)
+        self.layout_equalization_exponent.setObjectName("layout_equalization_exponent")
+        self.pushButton_equalization_exponent = QtWidgets.QPushButton(self.groupBox_equalization_exponent)
+        self.pushButton_equalization_exponent.setStyleSheet("\n"
+"QPushButton {\n"
+"    font-size: 10pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
+"    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
+"    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
+"\n"
+"    /* задает иконку */\n"
+"    background-position: left center;                            /* выравнивание иконки */\n"
+"    background-repeat: no-repeat;                                /* повторять иконку */\n"
+"} \n"
+"\n"
+"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"\n"
+"\n"
+"/* срабатывает, при нажатии*/\n"
+"QPushButton:pressed      {\n"
+"    background-color:rgb(170, 170, 170);        /* задаем цвет фона */\n"
+"    color: rgb(181, 181, 181);\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"/*")
+        self.pushButton_equalization_exponent.setObjectName("pushButton_equalization_exponent")
+        self.layout_equalization_exponent.addWidget(self.pushButton_equalization_exponent)
+        self.layout_equalization.addWidget(self.groupBox_equalization_exponent)
+        self.groupBox_equalization_hyperbola = QtWidgets.QGroupBox(self.groupBox_equalization)
+        self.groupBox_equalization_hyperbola.setObjectName("groupBox_equalization_hyperbola")
+        self.layout_equalization_hyperbola = QtWidgets.QVBoxLayout(self.groupBox_equalization_hyperbola)
+        self.layout_equalization_hyperbola.setObjectName("layout_equalization_hyperbola")
+        self.pushButton_equalization_hyperbola = QtWidgets.QPushButton(self.groupBox_equalization_hyperbola)
+        self.pushButton_equalization_hyperbola.setStyleSheet("\n"
+"QPushButton {\n"
+"    font-size: 10pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
+"    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
+"    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
+"\n"
+"    /* задает иконку */\n"
+"    background-position: left center;                            /* выравнивание иконки */\n"
+"    background-repeat: no-repeat;                                /* повторять иконку */\n"
+"} \n"
+"\n"
+"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"\n"
+"\n"
+"/* срабатывает, при нажатии*/\n"
+"QPushButton:pressed      {\n"
+"    background-color:rgb(170, 170, 170);        /* задаем цвет фона */\n"
+"    color: rgb(181, 181, 181);\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"/*")
+        self.pushButton_equalization_hyperbola.setObjectName("pushButton_equalization_hyperbola")
+        self.layout_equalization_hyperbola.addWidget(self.pushButton_equalization_hyperbola)
+        self.layout_equalization.addWidget(self.groupBox_equalization_hyperbola)
+        self.groupBox_equalization_equation = QtWidgets.QGroupBox(self.groupBox_equalization)
+        self.groupBox_equalization_equation.setObjectName("groupBox_equalization_equation")
+        self.layout_equalization_equation = QtWidgets.QVBoxLayout(self.groupBox_equalization_equation)
+        self.layout_equalization_equation.setObjectName("layout_equalization_equation")
+        self.widget_custom_equation = QtWidgets.QWidget(self.groupBox_equalization_equation)
+        self.widget_custom_equation.setObjectName("widget_custom_equation")
+        self.layout_custom_equation = QtWidgets.QHBoxLayout(self.widget_custom_equation)
+        self.layout_custom_equation.setContentsMargins(0, 0, 0, 0)
+        self.layout_custom_equation.setSpacing(6)
+        self.layout_custom_equation.setObjectName("layout_custom_equation")
+        self.label_text_custom_equation = QtWidgets.QLabel(self.widget_custom_equation)
+        self.label_text_custom_equation.setObjectName("label_text_custom_equation")
+        self.layout_custom_equation.addWidget(self.label_text_custom_equation)
+        self.lineEdit_custom_equation = QtWidgets.QLineEdit(self.widget_custom_equation)
+        self.lineEdit_custom_equation.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_custom_equation.setObjectName("lineEdit_custom_equation")
+        self.layout_custom_equation.addWidget(self.lineEdit_custom_equation)
+        self.layout_equalization_equation.addWidget(self.widget_custom_equation)
+        self.pushButton_equalization_equation = QtWidgets.QPushButton(self.groupBox_equalization_equation)
+        self.pushButton_equalization_equation.setStyleSheet("\n"
+"QPushButton {\n"
+"    font-size: 10pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
+"    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
+"    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
+"\n"
+"    /* задает иконку */\n"
+"    background-position: left center;                            /* выравнивание иконки */\n"
+"    background-repeat: no-repeat;                                /* повторять иконку */\n"
+"} \n"
+"\n"
+"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"\n"
+"\n"
+"/* срабатывает, при нажатии*/\n"
+"QPushButton:pressed      {\n"
+"    background-color:rgb(170, 170, 170);        /* задаем цвет фона */\n"
+"    color: rgb(181, 181, 181);\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"/*")
+        self.pushButton_equalization_equation.setObjectName("pushButton_equalization_equation")
+        self.layout_equalization_equation.addWidget(self.pushButton_equalization_equation)
+        self.label_text_custom_equation_2 = QtWidgets.QLabel(self.groupBox_equalization_equation)
+        self.label_text_custom_equation_2.setWordWrap(False)
+        self.label_text_custom_equation_2.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
+        self.label_text_custom_equation_2.setObjectName("label_text_custom_equation_2")
+        self.layout_equalization_equation.addWidget(self.label_text_custom_equation_2)
+        self.layout_equalization.addWidget(self.groupBox_equalization_equation)
+        self.verticalLayout_2.addWidget(self.groupBox_equalization)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
@@ -541,10 +708,22 @@ class Ui_Dialog(object):
         self.groupBox_normalization.setTitle(_translate("Dialog", "Нормализция гистограммы"))
         self.groupBox_percent_counts.setTitle(_translate("Dialog", "Процент отсчетов"))
         self.label_text_normalization_percent_counts.setText(_translate("Dialog", "Удаление [%]"))
-        self.lineEdit_normalization_percent_counts.setText(_translate("Dialog", "20"))
+        self.lineEdit_normalization_percent_counts.setText(_translate("Dialog", "50"))
         self.pushButton_normalization_percent_counts.setText(_translate("Dialog", "Обработка"))
-        self.groupBox_percent_counts_2.setTitle(_translate("Dialog", "Процент интенсивности"))
-        self.label_text_normalization_percent_counts_2.setText(_translate("Dialog", "Удаление [%]"))
-        self.lineEdit_normalization_percent_counts_2.setText(_translate("Dialog", "20"))
-        self.pushButton_normalization_percent_counts_2.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_percent_intensity.setTitle(_translate("Dialog", "Процент интенсивности"))
+        self.label_text_normalization_percent_intensity.setText(_translate("Dialog", "Удаление [%]"))
+        self.lineEdit_normalization_percent_intensity.setText(_translate("Dialog", "20"))
+        self.pushButton_normalization_percent_intensity.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_equalization.setTitle(_translate("Dialog", "Эквализация гистограммы"))
+        self.groupBox_equalization_uniform.setTitle(_translate("Dialog", "Равномерная"))
+        self.pushButton_equalization_uniform.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_equalization_exponent.setTitle(_translate("Dialog", "Экспоненциальная"))
+        self.pushButton_equalization_exponent.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_equalization_hyperbola.setTitle(_translate("Dialog", "Гиперболическая"))
+        self.pushButton_equalization_hyperbola.setText(_translate("Dialog", "Обработка"))
+        self.groupBox_equalization_equation.setTitle(_translate("Dialog", "Собственное уравнение"))
+        self.label_text_custom_equation.setText(_translate("Dialog", "y="))
+        self.lineEdit_custom_equation.setText(_translate("Dialog", "5 * x"))
+        self.pushButton_equalization_equation.setText(_translate("Dialog", "Обработка"))
+        self.label_text_custom_equation_2.setText(_translate("Dialog", "<html><head/><body><p><span style=\" font-weight:600;\">Const</span>: pi</p><p><span style=\" font-weight:600;\">Functions</span>: exp(), sin(),cos()...</p><p><span style=\" font-weight:600;\">Examples</span>:</p><p>1) x</p><p>2) (-1/2)*x+125</p><p>3) exp(x*0.02)</p><p>4) 2500 / (x+15)</p></body></html>"))
 import res_rc

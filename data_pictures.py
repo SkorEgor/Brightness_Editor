@@ -49,6 +49,11 @@ def histogram_normalization(in_histogram):
 
 # КЛАСС ИЗОБРАЖЕНИЯ И ЕГО ХАРАКТЕРИСТИК
 class DataPicture:
+    uniform = 1
+    exponent = pd.Series(np.exp(np.arange(256, dtype="int64") * 0.02)) #0.02
+    hyperbola = pd.Series(
+        2500/(np.nan_to_num(np.arange(256, dtype="int64"), neginf=0)+15) ) # 255
+
     # Конструктор
     def __init__(self):
         self.picture = None  # Изображение
@@ -154,6 +159,40 @@ class DataPicture:
         resulting_picture.linear_histogram[
             resulting_picture.linear_histogram < max_linear_histogram * percentage_saving / 100] = 0
 
+        # 5. Вычислили новую линейную гистограмму, по ней найдем кумулятивную гистограмму
+        resulting_picture.update_cumulative_histogram()
+
+        # 6. Исходным данным и гистограмме результирующего изображения.
+        # Находим результирующее изображение
+        resulting_picture.picture = DataPicture.cumulative_histograms_to_picture(
+            resulting_picture.cumulative_histogram, original_picture)
+
+        return resulting_picture
+
+        # (3) Нормализация по интенсивности
+
+    @staticmethod
+    def equalization_uniform(meaning, original_picture):
+        resulting_picture = DataPicture()
+
+        # 1. Нет оригинального изображения - сброс
+        if original_picture.picture is None:
+            return
+
+        # 2. Нет гистограмм оригинального изображения - рассчитать
+        if (original_picture.linear_histogram is None) or (original_picture.cumulative_histogram is None):
+            original_picture.update_histograms()
+
+        # 3. Копируем линейную гистограмму исходного изображения
+        resulting_picture.linear_histogram = pd.Series(np.zeros(int(256), dtype="int64")+meaning)
+
+        # # 4. Находим максимум
+        # max_linear_histogram = resulting_picture.linear_histogram.max()
+        #
+        # # Зануляем все что меньше процента максимума
+        # resulting_picture.linear_histogram[
+        #     resulting_picture.linear_histogram < max_linear_histogram * percentage_saving / 100] = 0
+        #
         # 5. Вычислили новую линейную гистограмму, по ней найдем кумулятивную гистограмму
         resulting_picture.update_cumulative_histogram()
 
