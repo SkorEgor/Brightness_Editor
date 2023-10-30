@@ -7,7 +7,6 @@ from custom_equation import custom_distribution
 from modal_dialog.schedule_to_distribution import DateDialog
 
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QFileDialog
 import cv2
 import numpy as np
 import pandas as pd
