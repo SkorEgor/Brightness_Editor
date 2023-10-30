@@ -3,6 +3,7 @@
 <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" height=24> 
 <img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" height=24>
 <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" height=24>
+<img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" height=24>
 <img src="https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=Qt&logoColor=white" height=24>
 </div>
 
@@ -30,7 +31,7 @@
 
 <div align="center">
 <!--- Демонстрация работы -->
-<img src="" >
+<img src="https://github.com/SkorEgor/Brightness_Editor/assets/92719975/11ec1b15-6209-4382-a50a-31f4ac77da57" >
 </div>
 
 ЛИНЕЙНАЯ ГИСТОГРАММА
@@ -74,6 +75,8 @@ g_min = 0 и g_max = 255.
 представлением изображения после контрастирования в полном динамическом
 диапазоне сигнала.
 
+![Скриншот 30-10-2023 181137](https://github.com/SkorEgor/Brightness_Editor/assets/92719975/f6d7e296-2792-4f4c-bd84-b67ac5d6d697)
+
 2. Нормализация гистограммы
 
 Метод нормализации гистограммы основан на том, что на весь
@@ -81,11 +84,16 @@ g_min = 0 и g_max = 255.
 гистограмма исходного изображения, а её наиболее интенсивный участок,
 таким образом, из рассмотрения исключаются малоинформативные «хвосты».
 
+![Скриншот 30-10-2023 181231](https://github.com/SkorEgor/Brightness_Editor/assets/92719975/0beb02fe-343d-471c-883a-61b207863a5d)
+
 3. Линеаризация или эквализациии гистограммы
 
 Основан на преобразовании яркостей пикселей изображения так, чтобы все
 уровни яркости имели примерно одинаковое значение, а гистограмма яркостей
 отвечала бы равномерному закону распределения.
+
+![Скриншот 30-10-2023 181357](https://github.com/SkorEgor/Brightness_Editor/assets/92719975/80c1a416-8b03-4e8a-a410-680cdd4b08e4)
+
 
 4. Общий случай
 
@@ -95,6 +103,14 @@ g_min = 0 и g_max = 255.
 изображения приняла желаемую форму. Методы преобразования шкалы
 яркости основаны на изменении функции плотности вероятности уровней
 яркости обрабатываемого изображения.
+
+  1. Через задание уравнения линейной гистограммы
+     
+![ezgif com-video-to-gif (12)](https://github.com/SkorEgor/Brightness_Editor/assets/92719975/b763851f-0c21-4da0-a35d-9f45dd30d918)
+
+  2. Через задание уравнения линейной гистограммы
+
+![ezgif com-video-to-gif (13)](https://github.com/SkorEgor/Brightness_Editor/assets/92719975/64f996e1-06db-43b5-8f5d-bc653384fe81)
 
 <!---------------------------------------------------------------------------------->
 
