@@ -224,7 +224,7 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -318, 222, 927))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -418, 222, 1043))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setContentsMargins(0, -1, 3, 0)
@@ -625,6 +625,40 @@ class Ui_Dialog(object):
         self.label_text_custom_equation_2.setObjectName("label_text_custom_equation_2")
         self.layout_equalization_equation.addWidget(self.label_text_custom_equation_2)
         self.layout_equalization.addWidget(self.groupBox_equalization_equation)
+        self.groupBox_draw_histogram = QtWidgets.QGroupBox(self.groupBox_equalization)
+        self.groupBox_draw_histogram.setObjectName("groupBox_draw_histogram")
+        self.layout_draw_histogram = QtWidgets.QVBoxLayout(self.groupBox_draw_histogram)
+        self.layout_draw_histogram.setObjectName("layout_draw_histogram")
+        self.pushButton_draw_histogram = QtWidgets.QPushButton(self.groupBox_draw_histogram)
+        self.pushButton_draw_histogram.setStyleSheet("\n"
+"QPushButton {\n"
+"    font-size: 10pt;\n"
+"    background-color:rgb(37, 41, 48);/* задает цвет фона */\n"
+"    display: inline-block;                            /* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */\n"
+"    border: 1px solid rgb(52, 59, 72);        /* задает границу элемента */\n"
+"\n"
+"    /* задает иконку */\n"
+"    background-position: left center;                            /* выравнивание иконки */\n"
+"    background-repeat: no-repeat;                                /* повторять иконку */\n"
+"} \n"
+"\n"
+"/* срабатывает, когда пользователь наводит на элемент мышью */\n"
+"QPushButton:hover {\n"
+"    background-color:rgb(40, 44, 52);            /* задаем цвет фона */\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"\n"
+"\n"
+"/* срабатывает, при нажатии*/\n"
+"QPushButton:pressed      {\n"
+"    background-color:rgb(170, 170, 170);        /* задаем цвет фона */\n"
+"    color: rgb(181, 181, 181);\n"
+"    border: none;                                                /* без границ */\n"
+"}\n"
+"/*")
+        self.pushButton_draw_histogram.setObjectName("pushButton_draw_histogram")
+        self.layout_draw_histogram.addWidget(self.pushButton_draw_histogram)
+        self.layout_equalization.addWidget(self.groupBox_draw_histogram)
         self.verticalLayout_2.addWidget(self.groupBox_equalization)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
@@ -725,5 +759,7 @@ class Ui_Dialog(object):
         self.label_text_custom_equation.setText(_translate("Dialog", "y="))
         self.lineEdit_custom_equation.setText(_translate("Dialog", "5 * x"))
         self.pushButton_equalization_equation.setText(_translate("Dialog", "Обработка"))
-        self.label_text_custom_equation_2.setText(_translate("Dialog", "<html><head/><body><p><span style=\" font-weight:600;\">Const</span>: pi</p><p><span style=\" font-weight:600;\">Functions</span>: exp(), sin(),cos()...</p><p><span style=\" font-weight:600;\">Examples</span>:</p><p>1) x</p><p>2) (-1/2)*x+125</p><p>3) exp(x*0.02)</p><p>4) 2500 / (x+15)</p></body></html>"))
+        self.label_text_custom_equation_2.setText(_translate("Dialog", "<html><head/><body><p align=\"justify\">val&lt;0 -&gt; 0</p><p align=\"justify\">val&gt;1000 -&gt; 1000</p><p><span style=\" font-weight:600;\">Const</span>: pi</p><p><span style=\" font-weight:600;\">Functions</span>: exp(), sin(),cos()...</p><p><span style=\" font-weight:600;\">Examples</span>:</p><p>1) x</p><p>2) (-1/2)*x+125</p><p>3) exp(x*0.02)</p><p>4) 2500 / (x+15)</p></body></html>"))
+        self.groupBox_draw_histogram.setTitle(_translate("Dialog", "Нарисовать гистограммму"))
+        self.pushButton_draw_histogram.setText(_translate("Dialog", "Обработка"))
 import res_rc

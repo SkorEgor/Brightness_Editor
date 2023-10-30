@@ -4,6 +4,7 @@ from graph import Graph
 from drawer import Drawer as drawer
 from data_pictures import DataPicture
 from custom_equation import custom_distribution
+from modal_dialog.schedule_to_distribution import DateDialog
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QFileDialog
@@ -124,8 +125,11 @@ class GuiProgram(Ui_Dialog):
             lambda: self.equalization(DataPicture.exponent))
         self.pushButton_equalization_hyperbola.clicked.connect(
             lambda: self.equalization(DataPicture.hyperbola))
+
         # Собственная функция распределения
         self.pushButton_equalization_equation.clicked.connect(self.custom_linear_histogram)
+        # Нарисовать распределение
+        self.pushButton_draw_histogram.clicked.connect(self.draw_histogram)
 
     # ОБРАБОТКА ИНТЕРФЕЙСА
     # Смена режима отображения картинки
@@ -240,6 +244,11 @@ class GuiProgram(Ui_Dialog):
         # 2) Отображаем результат
         self.display_data_picture_in_graph_resulting(self.resulting_picture)
 
+    # Рисование линейной гистограммы
+    def draw_histogram(self):
+        mass, status = DateDialog.get_array()
+        mass = pd.Series(mass)
+        self.equalization(mass)
 
     # Вывод гистограмм и картинки, в оригинальный столбец.
     def display_data_picture_in_graph_original(self, picture: DataPicture):

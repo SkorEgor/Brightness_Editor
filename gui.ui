@@ -275,9 +275,9 @@ border: none;
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>-318</y>
+              <y>-418</y>
               <width>222</width>
-              <height>983</height>
+              <height>1043</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -786,7 +786,7 @@ QPushButton:pressed      {
                <property name="title">
                 <string>Эквализация гистограммы</string>
                </property>
-               <layout class="QVBoxLayout" name="layout_equalization" stretch="0,0,0,0">
+               <layout class="QVBoxLayout" name="layout_equalization" stretch="0,0,0,0,0">
                 <property name="spacing">
                  <number>6</number>
                 </property>
@@ -1023,6 +1023,50 @@ QPushButton:pressed      {
                      </property>
                      <property name="textInteractionFlags">
                       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_draw_histogram">
+                  <property name="title">
+                   <string>Нарисовать гистограммму</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="layout_draw_histogram">
+                   <item>
+                    <widget class="QPushButton" name="pushButton_draw_histogram">
+                     <property name="styleSheet">
+                      <string notr="true">
+QPushButton {
+	font-size: 10pt;
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
+	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
+	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
+
+	/* задает иконку */
+	background-position: left center;							/* выравнивание иконки */
+	background-repeat: no-repeat;								/* повторять иконку */
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+	border: none;												/* без границ */
+}
+
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(170, 170, 170);		/* задаем цвет фона */
+	color: rgb(181, 181, 181);
+	border: none;												/* без границ */
+}
+/*</string>
+                     </property>
+                     <property name="text">
+                      <string>Обработка</string>
                      </property>
                     </widget>
                    </item>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialog_convert_graphics_to_values</class>
+ <widget class="QDialog" name="dialog_convert_graphics_to_values">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>680</width>
+    <height>541</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Перевод графика в распределение</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="layout_dialog">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget_design" native="true">
+     <property name="styleSheet">
+      <string notr="true">QWidget{
+	background-color: rgb(33, 37, 43);
+	color: rgb(208, 208, 208);
+	font-size: 10pt;
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+ScrollBars */
+ QScrollBar {
+border: none;												/* без границ */
+	border-right:5px solid rgb(211, 211, 211);;	/* С правой красной раницей */
+ }
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 8px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+ }
+
+/* Ползунок */
+ QScrollBar::handle:vertical {	
+	background:rgb(255, 255, 255);
+    min-height: 25px;
+	border-radius: 4px
+ }
+/*Нижняя стрелка*/
+ QScrollBar::add-line:vertical {
+     border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+/*Верхняя стрелка*/
+ QScrollBar::sub-line:vertical {
+	border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+/* Цвета нижних и верхних стрелок */
+ QScrollBar::up-arrow:vertical{
+	border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+     background: rgb(255, 255, 255);
+ }
+QScrollBar::down-arrow:vertical{
+	border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+     background: rgb(255, 255, 255);
+}
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+RadioButton */
+QRadioButton::indicator {
+    border: 3px solid rgb(52, 59, 72);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+    background: rgb(44, 49, 60);
+}
+QRadioButton::indicator:hover {
+    border: 3px solid rgb(58, 66, 81);
+}
+QRadioButton::indicator:checked {
+    background: 3px solid rgb(255, 255, 255);
+	border: 3px solid rgb(52, 59, 72);	
+}
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QRadioButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+}
+/* срабатывает, при нажатии*/
+QRadioButton:pressed      {
+	background-color:rgb(170, 170, 170);		/* задаем цвет фона */
+	color:  rgb(0, 0, 0);
+	border: none;												/* без границ */
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QCheckBox */
+/* Стандартное состояние*/
+QCheckBox{
+	padding-left: 8px;		/* Отступ слева */
+	padding-right: -8px;	/* Отступ справа */
+}
+
+/* Состояние - не выбран*/
+QCheckBox::indicator:unchecked {
+	/* Выбор картинки*/
+	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_error_red_24dp.svg)
+}
+
+/* Состояние -  выбран*/
+QCheckBox::indicator:checked {
+	/* Выбор картинки*/
+	image: url(:/checkbox_status_success/resource/checkbox_status_success/check_ok_grean_24dp.svg);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QPushButton */
+/*Стандартное состояние для кнопки*/
+QPushButton {
+	font-size: 12pt;
+	background-color:rgb(37, 41, 48);/* задает цвет фона */
+	display: inline-block;							/* пределяет, будет ли элемент обрабатываться как блочный или встроенный элемент */
+	border: 1px solid rgb(52, 59, 72);		/* задает границу элемента */
+
+	/* задает иконку */
+	background-position: left center;							/* выравнивание иконки */
+	background-repeat: no-repeat;								/* повторять иконку */
+} 
+
+/* срабатывает, когда пользователь наводит на элемент мышью */
+QPushButton:hover {
+	background-color:rgb(40, 44, 52);			/* задаем цвет фона */
+	border: none;												/* без границ */
+	border-left:4px solid rgb(208, 208, 208);	/* С правой красной раницей */
+}
+
+
+/* срабатывает, при нажатии*/
+QPushButton:pressed      {
+	background-color:rgb(170, 170, 170);		/* задаем цвет фона */
+	color: rgb(181, 181, 181);
+	border: none;												/* без границ */
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QLineEdit */
+/* Стиль по умолчанию */
+QLineEdit:enabled{
+	background-color:rgb(44, 49, 58); /* Устанавливаем цвет заливки */
+	border: 1px solid rgb(255, 255, 255); 
+}
+
+/* Если поле отключено */
+QLineEdit:disabled {
+	background-color:  rgba(67, 74, 88, 0); /* Устанавливаем цвет заливки */
+	border: 1px solid rgb(255, 255, 255); 
+	color: rgb(67, 74, 88);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QGroupBox */
+QGroupBox{
+	color:rgb(255, 255, 255);	/* задает цвет шрифта */
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QTableWidget */
+
+QTableWidget {	
+	gridline-color: rgb(136, 136, 136);
+	border-top: 1px solid rgb(54, 60, 74);
+	border-bottom: 1px solid  rgb(54, 60, 74);
+}
+QTableWidget::item:selected{
+	background-color: rgb(72, 81, 94);
+}
+QHeaderView { qproperty-defaultAlignment: AlignCenter; }
+/*Цвет верхнего и левого поля*/
+QHeaderView::section{
+	background-color:rgb(37, 41, 48);
+    border-style: none;
+border: 1px solid rgb(136, 136, 136);
+}
+/*Кнопка в верхнем левом углу*/
+QTableCornerButton::section {background-color:rgb(33, 37, 43); }
+
+QWidget#widget_loading_data {
+	border-bottom: 2px solid rgb(208, 208, 208);
+}
+QWidget#widget_processing {
+	border-top: 2px solid rgb(208, 208, 208);
+}
+QScrollArea{
+border: none;
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="layout_design">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="widget_plot" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+background-color: rgb(240, 240, 240);
+color: rgb(0, 0, 0);
+}
+</string>
+        </property>
+        <layout class="QVBoxLayout" name="layout_plot" stretch="1,1">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="widget_plot_1" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>440</width>
+             <height>200</height>
+            </size>
+           </property>
+           <layout class="QVBoxLayout" name="layout_plot_1">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_plot_2" native="true">
+           <layout class="QVBoxLayout" name="layout_plot_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_message_buttons" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QHBoxLayout" name="layout_message_buttons">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>3</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="pushButton_preview">
+           <property name="text">
+            <string>Предпросмотр</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_clear">
+           <property name="text">
+            <string>Очистить</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
