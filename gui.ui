@@ -277,7 +277,7 @@ border: none;
               <x>0</x>
               <y>-318</y>
               <width>222</width>
-              <height>927</height>
+              <height>983</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1016,7 +1016,7 @@ QPushButton:pressed      {
                    <item>
                     <widget class="QLabel" name="label_text_custom_equation_2">
                      <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Const&lt;/span&gt;: pi&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Functions&lt;/span&gt;: exp(), sin(),cos()...&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Examples&lt;/span&gt;:&lt;/p&gt;&lt;p&gt;1) x&lt;/p&gt;&lt;p&gt;2) (-1/2)*x+125&lt;/p&gt;&lt;p&gt;3) exp(x*0.02)&lt;/p&gt;&lt;p&gt;4) 2500 / (x+15)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;val&amp;lt;0 -&amp;gt; 0&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;val&amp;gt;1000 -&amp;gt; 1000&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Const&lt;/span&gt;: pi&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Functions&lt;/span&gt;: exp(), sin(),cos()...&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Examples&lt;/span&gt;:&lt;/p&gt;&lt;p&gt;1) x&lt;/p&gt;&lt;p&gt;2) (-1/2)*x+125&lt;/p&gt;&lt;p&gt;3) exp(x*0.02)&lt;/p&gt;&lt;p&gt;4) 2500 / (x+15)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="wordWrap">
                       <bool>false</bool>
